@@ -77,5 +77,4 @@ nav:
   - Reference:
       - Commands & Permissions: reference/commands.md
       - PlaceholderAPI Reference: reference/placeholders.md
-      - Architecture & Governance: reference/governance.md
-      - Walkthrough (Español): reference/walkthrough-es.md
+      - FAQ & Troubleshooting: reference/faq.md

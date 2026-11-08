@@ -11,7 +11,7 @@ season:
   enabled: true
   auto-rollover: true
   rollover-interval-days: 30
-  barrier-delay-ms: 1000 # Distributed lock barrier coordination delay
+  barrier-delay-ms: 1000 # Synchronization delay across multi-server networks
 
 current-season:
   id: 1
@@ -33,20 +33,20 @@ rewards:
 
 ---
 
-## 🔒 Two-Phase Rollover Barrier
+## 🔒 Safe Tournament Rollovers
 
-When a season expires (either automatically or via `/season rollover`):
-1. **Phase 1: Freeze & Distributed Lock:**
-   The coordinating node acquires a database-level distributed lock. Active score increments are temporarily frozen in RAM to ensure an uncorrupted snapshot.
-2. **Phase 2: Archive & Reward Queuing:**
-   The top players for each stat are immortalized into the `bh_hall_of_fame` table. Reward commands are queued into the `bh_pending_rewards` queue for Top 1, 2, and 3 players.
-3. **Phase 3: Activation & Resumption:**
-   A new active season ID is generated, stats for the new season are initialized, and live score increments resume.
+When a season expires (either automatically based on duration or manually via `/season rollover`):
+
+1. **Snapshot & Lock:**
+   The server takes a synchronized snapshot of all leaderboard standings to ensure rankings are captured accurately without mid-reset race conditions.
+2. **Historical Archiving & Reward Distribution:**
+   Top winners for every active category are permanently archived in the Hall of Fame. Winning reward commands are queued safely for offline and online players.
+3. **Season Activation & Reset:**
+   The new season starts automatically with fresh leaderboards, while past season achievements remain permanently viewable in the Hall of Fame.
 
 ---
 
-## 🎁 Reward Delivery & Historical Browser
+## 🎁 Reward Delivery & Hall of Fame Browser
 
-* **Safe Delivery:** Pending rewards are delivered via console commands when players log in (`claim-on-join: true`) or manually via `/season claim`.
-* **Hall of Fame (`/halloffame`):** Players can open an interactive GUI to browse winners, podium standings, and final scores of past seasons.
-
+* **Offline Reward Safety:** If a player is offline when the season ends, their rewards remain safely queued until their next login (`claim-on-join: true`) or until they execute `/season claim`.
+* **Interactive Hall of Fame (`/halloffame`):** Players can open an interactive GUI at any time to browse past tournament seasons, inspect podium winners, and see final scores.

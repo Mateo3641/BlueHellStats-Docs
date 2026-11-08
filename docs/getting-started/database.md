@@ -1,6 +1,6 @@
 # ⚙️ Database Configuration
 
-BlueHellStats provides an asynchronous database layer powered by **HikariCP** connection pooling and automatic schema migrations.
+BlueHellStats provides a high-performance, asynchronous database engine powered by enterprise-grade **HikariCP** connection pooling and automatic schema management.
 
 ---
 
@@ -9,7 +9,7 @@ BlueHellStats provides an asynchronous database layer powered by **HikariCP** co
 Configure your storage engine in `plugins/BlueHellEssence/config.yml`:
 
 ### 1. SQLite (Default — Single Server / Local)
-Ideal for single-server setups, survival servers, or local testing. Zero installation required.
+Ideal for single-server setups, survival servers, or testing environments. Requires zero setup or external services.
 
 ```yaml
 locale: "en"
@@ -21,7 +21,7 @@ database:
 ```
 
 ### 2. MySQL / MariaDB (Multi-Server Network / Bungee / Velocity)
-Ideal for networks hosted across multiple nodes or managed via phpMyAdmin/Pterodactyl.
+Ideal for networks hosted across multiple nodes, shared dedicated servers, or managed via phpMyAdmin/Pterodactyl.
 
 ```yaml
 locale: "en"
@@ -45,7 +45,7 @@ sync:
 ```
 
 ### 3. PostgreSQL (Enterprise High-Performance)
-Recommended for massive network scale with ultra-low query latency and advanced connection pooling.
+Recommended for massive network scales requiring ultra-low latency, robust connection pooling, and heavy concurrent player traffic.
 
 ```yaml
 locale: "en"
@@ -63,11 +63,11 @@ database:
 
 ---
 
-## ⚡ Write-Behind Caching Architecture
+## ⚡ Performance & Data Safety Guarantees
 
-To guarantee that the Bukkit tick thread is never stalled:
-1. **In-Memory Mutations:** When players break blocks, kill mobs, or trigger stats, their score delta is accumulated into a local concurrent RAM cache (`dirtyDeltas`) in nanoseconds.
-2. **Periodic Batch Flushing:** Every `flush-interval-seconds` (default: 20s), an asynchronous background worker drains dirty deltas and sends batch SQL statements (`executeBatch()`) within a single database transaction.
-3. **Session Flush on Disconnect:** When a player disconnects (`PlayerQuitEvent`), any pending uncommitted delta is immediately flushed asynchronously to ensure zero stat loss.
-4. **Clean Server Shutdown:** On `onDisable()`, the plugin blocks gracefully until all pending database writes finish before closing the HikariCP connection pool.
+To ensure that your server runs smoothly with consistent 20.0 TPS even during high player activity:
 
+* **Asynchronous Execution:** Database operations, connection handshakes, and queries never run on your main server thread. Your gameplay and tick rates remain completely unaffected.
+* **Smart Memory Caching:** Stat increments are tracked instantly in memory and batched before saving, minimizing database disk writes and network load.
+* **Zero Stat Loss on Disconnect:** Whenever a player leaves the server, any uncommitted progress is immediately committed to storage in the background.
+* **Safe Server Shutdowns:** When the server stops or restarts, BlueHellStats ensures all pending stat saves are safely finalized before releasing database connections.

@@ -4,3 +4,4 @@ This repository powers the official documentation website for **BlueHellStats** 
 👉 **https://mateo3641.github.io/BlueHellStats-Docs/**
 
 Built with **[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)** and deployed automatically via GitHub Pages.
+

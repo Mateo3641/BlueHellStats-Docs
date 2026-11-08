@@ -1,17 +1,17 @@
-# 🎨 GUI Customization & Anti-Dupe Architecture
+# 🎨 GUI Customization & Anti-Dupe Protection
 
 All user interfaces in BlueHellStats are declarative, customizable via YAML files inside `plugins/BlueHellEssence/menus/`, and built with enterprise-grade anti-dupe security.
 
 ---
 
-## 🛡️ Anti-Dupe Security & HCI Design
+## 🛡️ Anti-Dupe Security & Protection
 
-Virtual menus in Minecraft can be susceptible to item duplication and ghost item glitches if poorly designed. BlueHellStats employs a multi-tiered security model:
+Virtual menus in Minecraft can be susceptible to item duplication and ghost item glitches if poorly designed. BlueHellStats employs a comprehensive security shield:
 
-1. **Priority Cancellation:** All `InventoryClickEvent` and `InventoryDragEvent` occurrences in any plugin menu are cancelled at `EventPriority.HIGHEST`.
+1. **Strict Interaction Cancellation:** All inventory clicks, drags, and item movements are strictly intercepted and cancelled before they can affect inventories.
 2. **Hotbar Swap & Injection Shield:** Number key swaps (1-9), shift-clicks, off-hand swaps (`F`), and double-clicks are completely blocked.
-3. **Macro Debouncing:** An internal 150ms per-player debouncer prevents autoclicker race conditions during menu transitions.
-4. **PDC Navigation Routing:** Buttons store routing metadata in Paper's `PersistentDataContainer` (PDC), never relying on mutable item display names or lore.
+3. **Macro & Autoclicker Debouncing:** An internal per-player debouncer prevents rapid autoclickers and packet flood race conditions during menu transitions.
+4. **Tamper-Proof Action Metadata:** Menu buttons store navigation actions in persistent item metadata, ensuring menus cannot be exploited by item renaming, anvil tampering, or custom resource packs.
 
 ---
 
@@ -73,6 +73,6 @@ stat_item:
     - "<gray>Score:</gray> <white><score></white>"
     - "<gray>Leaderboard Rank:</gray> <gold><rank></gold>"
 ```
-* **Interactive Navigation:** Clicking any player head in `/top <stat>` opens their multi-stat profile.
-* **Pagination:** Automatically distributes categories across pages if the server configures more stats than slots.
 
+* **Interactive Navigation:** Clicking any player head in `/top <stat>` opens their multi-stat profile.
+* **Automatic Pagination:** Automatically distributes categories across multiple pages if you configure more stats than available slots.

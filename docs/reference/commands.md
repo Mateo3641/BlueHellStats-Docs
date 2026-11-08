@@ -53,9 +53,9 @@ Permission: `bluehell.season.admin`
 
 | Command | Description |
 | :--- | :--- |
-| `/season status` | Display active season details, start/end dates, and barrier state. |
+| `/season status` | Display active season details, start/end dates, and status. |
 | `/season start <number> <name> [duration]` | Force start a new season (e.g. `/season start 2 "Winter Cup" 30d`). |
 | `/season end` | Force terminate the active season. |
-| `/season rollover [number] [name] [duration]` | Execute atomic Two-Phase Rollover Barrier immediately. |
+| `/season rollover [number] [name] [duration]` | Execute immediate season rollover and reward distribution. |
 | `/season resetall confirm` | Master administrative reset back to Season #1 (wipes history). |
 

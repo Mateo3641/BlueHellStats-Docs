@@ -1,12 +1,12 @@
 # 🔌 Zero-Overhead Dynamic Custom Event Engine
 
-BlueHellStats features an event interception engine that allows you to hook and track events emitted by **any 3rd-party plugin** (e.g. custom turrets, slimefun machines, jobs, custom bosses) without having to add compile-time Maven dependencies.
+BlueHellStats features an event interception engine that allows you to hook and track events emitted by **any 3rd-party plugin** (such as custom turrets, custom enchants, slimefun items, custom bosses, or jobs) directly from your configuration, **without needing custom addons or programming**.
 
 ---
 
 ## 🚀 Configuration Syntax (`stats.yml`)
 
-Set `event: CUSTOM` and declare the `custom_event_data` block:
+To track an external plugin's event, set `event: CUSTOM` and configure the `custom_event_data` section:
 
 ```yaml
 stats:
@@ -31,22 +31,28 @@ stats:
 
 | Property | Description | Example |
 | :--- | :--- | :--- |
-| `event` | The fully-qualified Java class name of the event. | `"dt.ajneb97.api.TurretPlaceEvent"` |
-| `player_variable` | Method chain returning the `Player` performing the event. | `"getPlayer()"` or `"getEntity()"` |
-| `variables_to_capture` | List of `<placeholder>;<getter_method_path>`. | `"%world%;getLocation().getWorld().getName()"` |
-| `conditions` | Logic checks comparing captured placeholders. | `"%world% equals world"`, `"%level% >= 5"` |
+| `event` | The full event class name provided by the 3rd-party plugin. | `"dt.ajneb97.api.TurretPlaceEvent"` |
+| `player_variable` | The method path returning the player responsible for the event. | `"getPlayer()"` or `"getEntity()"` |
+| `variables_to_capture` | List of placeholders and their getter method chains. | `"%world%;getLocation().getWorld().getName()"` |
+| `conditions` | Logic checks comparing captured variables before incrementing. | `"%world% equals world"`, `"%level% >= 5"` |
 
 ---
 
-## ⚡ Technical Architecture: Why is it Lag-Free?
+## 🔍 How to Find Event Names for Any Plugin
 
-Traditional dynamic event reflection in Bukkit plugins uses `java.lang.reflect.Method.invoke()`, which causes significant overhead and garbage allocation.
+Most plugin developers publish their API event names in their documentation or GitHub repositories.
 
-BlueHellStats eliminates this:
-1. **Boot Compilation via `MethodHandleChain`:**
-   During server startup or `/bhe reload`, the method paths (e.g. `getLocation().getWorld().getName()`) are parsed and compiled into high-performance `java.lang.invoke.MethodHandle`s linked directly to the JVM call site.
-2. **Native Bukkit `EventExecutor`:**
-   The event listener registers directly into Bukkit's `HandlerList` via `pluginManager.registerEvent()`, bypassing heavy listener proxying.
-3. **Bytecode Invocation ($O(1)$):**
-   When the event fires, methods are invoked through pre-bound `MethodHandle.invokeExact()` / `invoke()`, running at near-native compiled Java speed.
+1. **Check the plugin's documentation:** Look for an "API" or "Developer" section (for example: `com.sk89q.worldguard.protection.events.DisallowedPVPEvent`).
+2. **Identify the player getter:** Typically `getPlayer()`, `getEntity()`, or `getDamager()`.
+3. **Capture contextual values:** You can chain standard Java getter methods, such as `getItem().getType().name()` or `getLocation().getWorld().getName()`.
 
+---
+
+## ⚡ Performance Guarantee
+
+Tracking dynamic events in other plugins often causes severe lag spikes if implemented poorly. 
+
+BlueHellStats solves this completely:
+* **Pre-Compiled at Startup:** Method chains are resolved and compiled into high-speed executable handles during server startup and `/bhe reload`.
+* **Zero Runtime Overhead:** When events fire in game, conditions are checked at near-native compiled speed with zero memory allocation or CPU overhead.
+* **Safe Fallbacks:** If a configured plugin is not installed or the event class is not found, BlueHellStats logs a clean warning in console without crashing your server.
