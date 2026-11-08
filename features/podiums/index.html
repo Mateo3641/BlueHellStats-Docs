@@ -947,42 +947,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/governance/" class="md-nav__link">
+      <a href="../../reference/faq/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Architecture & Governance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/walkthrough-es/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Walkthrough (Español)
+    FAQ & Troubleshooting
   
 
     
@@ -1133,7 +1105,7 @@
 
 
 <h1 id="in-world-3d-podiums-guide">🗿 In-World 3D Podiums Guide</h1>
-<p>BlueHellStats allows you to spawn physical 3D podium statues directly in the Minecraft world to honor top contenders in real-time.</p>
+<p>BlueHellStats allows you to spawn physical 3D podium statues directly in the Minecraft world to honor top contenders in real time.</p>
 <hr />
 <h2 id="supported-podium-providers">🎨 Supported Podium Providers</h2>
 <p>Configure the podium type per entry in <code>podiums.yml</code>:</p>
@@ -1151,24 +1123,24 @@
 </span></code></pre></div>
 <h3 id="1-armor_stand-native-paper-121">1. <code>ARMOR_STAND</code> (Native Paper 1.21+)</h3>
 <ul>
-<li><strong>Dependencies:</strong> None! Works out of the box on vanilla Paper.</li>
-<li><strong>Features:</strong> Spawns an ArmorStand wearing the real top player's skin skull (retrieved asynchronously from Mojang API), tier-themed armor (Gold for 1st, Iron for 2nd, Chainmail for 3rd), and a hand-held trophy item.</li>
+<li><strong>Dependencies:</strong> None! Works out of the box on vanilla Paper servers.</li>
+<li><strong>Features:</strong> Spawns an ArmorStand wearing the real top player's skin skull (retrieved automatically from the Mojang API), tier-themed armor (Gold for 1st, Iron for 2nd, Chainmail for 3rd), and a hand-held trophy item.</li>
 <li><strong>Protection:</strong> Equipment and armor stands are marked invulnerable and tamper-proof.</li>
 </ul>
 <h3 id="2-citizens-citizens-2">2. <code>CITIZENS</code> (Citizens 2)</h3>
 <ul>
 <li><strong>Dependencies:</strong> <a href="https://www.spigotmc.org/resources/citizens.13812/">Citizens 2</a>.</li>
-<li><strong>Features:</strong> Spawns a full NPC player model dynamically applying the top player's skin. Supports Citizens traits and poses.</li>
+<li><strong>Features:</strong> Spawns a full NPC player model dynamically applying the top player's skin. Supports Citizens traits, equipment, and poses.</li>
 </ul>
 <h3 id="3-fancy_npcs-fancynpcs-210-212">3. <code>FANCY_NPCS</code> (FancyNpcs 2.10+ &amp; 2.12+)</h3>
 <ul>
 <li><strong>Dependencies:</strong> <a href="https://modrinth.com/plugin/fancynpcs">FancyNpcs</a>.</li>
 <li><strong>Features:</strong> Lightweight packet-based player NPCs with zero server entity overhead.</li>
-<li><strong>Upstream Bug Hotfix:</strong> Includes an automatic compatibility patch for FancyNpcs 2.10.x running on Paper 1.21, fixing the internal <code>custom_model</code> missing attribute NPE.</li>
+<li><strong>Compatibility:</strong> Fully compatible out of the box with Paper 1.21 and 1.21.1+.</li>
 </ul>
 <hr />
 <h2 id="managing-poses-with-fancynpcs">🧘 Managing Poses with FancyNpcs</h2>
-<p>FancyNpcs models poses as entity attributes. You can adjust the pose of any podium NPC in-game:</p>
+<p>FancyNpcs allows you to customize the pose of any podium NPC in game:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/npc<span class="w"> </span>attribute<span class="w"> </span>bhe_podium_&lt;stat&gt;_&lt;rank&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pose<span class="w"> </span>&lt;pose&gt;
 </span></code></pre></div>
 <p>Supported poses for Player NPCs:
@@ -1191,8 +1163,8 @@
 <hr />
 <h2 id="interactive-click-routing">🖱️ Interactive Click Routing</h2>
 <p>When players punch or right-click any podium statue:
-* Virtual anti-dupe click handler routes the player directly to <code>/top &lt;stat&gt;</code> for that podium's category.
-* Bypasses client-side macro spam using an internal debouncer.</p>
+* Players are automatically routed directly to <code>/top &lt;stat&gt;</code> for that podium's category.
+* Includes fast-click spam protection to ensure smooth client performance.</p>
 
 
 

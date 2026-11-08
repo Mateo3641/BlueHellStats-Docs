@@ -743,10 +743,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#two-phase-rollover-barrier" class="md-nav__link">
+  <a href="#safe-tournament-rollovers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔒 Two-Phase Rollover Barrier
+        🔒 Safe Tournament Rollovers
       
     </span>
   </a>
@@ -754,10 +754,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reward-delivery-historical-browser" class="md-nav__link">
+  <a href="#reward-delivery-hall-of-fame-browser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎁 Reward Delivery &amp; Historical Browser
+        🎁 Reward Delivery &amp; Hall of Fame Browser
       
     </span>
   </a>
@@ -897,42 +897,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/governance/" class="md-nav__link">
+      <a href="../../reference/faq/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Architecture & Governance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/walkthrough-es/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Walkthrough (Español)
+    FAQ & Troubleshooting
   
 
     
@@ -991,10 +963,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#two-phase-rollover-barrier" class="md-nav__link">
+  <a href="#safe-tournament-rollovers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔒 Two-Phase Rollover Barrier
+        🔒 Safe Tournament Rollovers
       
     </span>
   </a>
@@ -1002,10 +974,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reward-delivery-historical-browser" class="md-nav__link">
+  <a href="#reward-delivery-hall-of-fame-browser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎁 Reward Delivery &amp; Historical Browser
+        🎁 Reward Delivery &amp; Hall of Fame Browser
       
     </span>
   </a>
@@ -1040,7 +1012,7 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">auto-rollover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">rollover-interval-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">barrier-delay-ms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"> </span><span class="c1"># Distributed lock barrier coordination delay</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">barrier-delay-ms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"> </span><span class="c1"># Synchronization delay across multi-server networks</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">current-season</span><span class="p">:</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
@@ -1060,19 +1032,21 @@
 </span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"eco</span><span class="nv"> </span><span class="s">give</span><span class="nv"> </span><span class="s">%player%</span><span class="nv"> </span><span class="s">10000"</span>
 </span></code></pre></div>
 <hr />
-<h2 id="two-phase-rollover-barrier">🔒 Two-Phase Rollover Barrier</h2>
-<p>When a season expires (either automatically or via <code>/season rollover</code>):
-1. <strong>Phase 1: Freeze &amp; Distributed Lock:</strong>
-   The coordinating node acquires a database-level distributed lock. Active score increments are temporarily frozen in RAM to ensure an uncorrupted snapshot.
-2. <strong>Phase 2: Archive &amp; Reward Queuing:</strong>
-   The top players for each stat are immortalized into the <code>bh_hall_of_fame</code> table. Reward commands are queued into the <code>bh_pending_rewards</code> queue for Top 1, 2, and 3 players.
-3. <strong>Phase 3: Activation &amp; Resumption:</strong>
-   A new active season ID is generated, stats for the new season are initialized, and live score increments resume.</p>
+<h2 id="safe-tournament-rollovers">🔒 Safe Tournament Rollovers</h2>
+<p>When a season expires (either automatically based on duration or manually via <code>/season rollover</code>):</p>
+<ol>
+<li><strong>Snapshot &amp; Lock:</strong>
+   The server takes a synchronized snapshot of all leaderboard standings to ensure rankings are captured accurately without mid-reset race conditions.</li>
+<li><strong>Historical Archiving &amp; Reward Distribution:</strong>
+   Top winners for every active category are permanently archived in the Hall of Fame. Winning reward commands are queued safely for offline and online players.</li>
+<li><strong>Season Activation &amp; Reset:</strong>
+   The new season starts automatically with fresh leaderboards, while past season achievements remain permanently viewable in the Hall of Fame.</li>
+</ol>
 <hr />
-<h2 id="reward-delivery-historical-browser">🎁 Reward Delivery &amp; Historical Browser</h2>
+<h2 id="reward-delivery-hall-of-fame-browser">🎁 Reward Delivery &amp; Hall of Fame Browser</h2>
 <ul>
-<li><strong>Safe Delivery:</strong> Pending rewards are delivered via console commands when players log in (<code>claim-on-join: true</code>) or manually via <code>/season claim</code>.</li>
-<li><strong>Hall of Fame (<code>/halloffame</code>):</strong> Players can open an interactive GUI to browse winners, podium standings, and final scores of past seasons.</li>
+<li><strong>Offline Reward Safety:</strong> If a player is offline when the season ends, their rewards remain safely queued until their next login (<code>claim-on-join: true</code>) or until they execute <code>/season claim</code>.</li>
+<li><strong>Interactive Hall of Fame (<code>/halloffame</code>):</strong> Players can open an interactive GUI at any time to browse past tournament seasons, inspect podium winners, and see final scores.</li>
 </ul>
 
 

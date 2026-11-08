@@ -503,10 +503,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 Prerequisites
+        📋 Requirements
       
     </span>
   </a>
@@ -514,10 +514,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation-steps" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📦 Installation Steps
+        📦 Installation
       
     </span>
   </a>
@@ -886,42 +886,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/governance/" class="md-nav__link">
+      <a href="../../reference/faq/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Architecture & Governance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/walkthrough-es/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Walkthrough (Español)
+    FAQ & Troubleshooting
   
 
     
@@ -969,10 +941,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 Prerequisites
+        📋 Requirements
       
     </span>
   </a>
@@ -980,10 +952,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation-steps" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📦 Installation Steps
+        📦 Installation
       
     </span>
   </a>
@@ -1011,11 +983,11 @@
 
 
 <h1 id="quick-start-guide">🚀 Quick Start Guide</h1>
-<p>This guide walks you through installing and configuring BlueHellStats on a Paper 1.21+ server.</p>
+<p>This guide walks you through installing and configuring BlueHellStats on your Paper 1.21+ server.</p>
 <hr />
-<h2 id="prerequisites">📋 Prerequisites</h2>
+<h2 id="requirements">📋 Requirements</h2>
 <ul>
-<li><strong>Server Platform:</strong> <a href="https://papermc.io">Paper</a>, Purpur, or any modern Paper fork running <strong>Minecraft 1.21.1+</strong>.</li>
+<li><strong>Server Platform:</strong> <a href="https://papermc.io">Paper</a>, Purpur, or any modern Paper fork running <strong>Minecraft 1.21 or 1.21.1+</strong>.</li>
 <li><strong>Java Runtime:</strong> <strong>Java 21</strong> or newer (OpenJDK / Temurin 21 recommended).</li>
 <li><strong>Optional Integrations:</strong></li>
 <li><strong><a href="https://www.spigotmc.org/resources/placeholderapi.6245/">PlaceholderAPI</a></strong> (for chat, scoreboard, and tablist placeholders)</li>
@@ -1025,11 +997,10 @@
 <li><strong><a href="https://www.spigotmc.org/resources/vault.34315/">Vault</a></strong> (for economy commands in seasonal rewards and milestones)</li>
 </ul>
 <hr />
-<h2 id="installation-steps">📦 Installation Steps</h2>
+<h2 id="installation">📦 Installation</h2>
 <ol>
-<li><strong>Download:</strong> Obtain the latest <code>BlueHellEssence-1.3.0.jar</code> from <a href="https://github.com/Mateo3641/BlueHellStats/releases">Releases</a>.</li>
-<li><strong>Deploy:</strong> Place the <code>.jar</code> into your server's <code>plugins/</code> folder.</li>
-<li><strong>Boot Server:</strong> Start your server once to allow BlueHellStats to create its configuration folder and default files:
+<li><strong>Deploy:</strong> Place the downloaded <code>.jar</code> file into your server's <code>plugins/</code> directory.</li>
+<li><strong>Start Server:</strong> Start your server to generate the default configuration files:
    <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>plugins/BlueHellEssence/
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── config.yml
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── seasons.yml
@@ -1043,8 +1014,8 @@
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    ├── top.yml
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    └── profile.yml
 </span></code></pre></div></li>
-<li><strong>Choose Database:</strong> By default, BlueHellStats runs on <strong>SQLite</strong> (<code>bluehell.db</code>), requiring zero setup. If you run a network, see <a href="../database/">Database Configuration</a>.</li>
-<li><strong>Reload Configs:</strong> Run <code>/bhe reload</code> to apply any changes in real time without restarting the server.</li>
+<li><strong>Storage Setup:</strong> By default, BlueHellStats uses high-speed <strong>SQLite</strong> (<code>bluehell.db</code>), requiring zero initial configuration. For multi-server proxy networks, see <a href="../database/">Database Configuration</a>.</li>
+<li><strong>Live Reload:</strong> Modify your YAML files and run <code>/bhe reload</code> to apply updates instantly without restarting your server.</li>
 </ol>
 
 

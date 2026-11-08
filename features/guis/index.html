@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gui-customization-anti-dupe-architecture" class="md-skip">
+        <a href="#gui-customization-anti-dupe-protection" class="md-skip">
           Skip to content
         </a>
       
@@ -704,10 +704,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#anti-dupe-security-hci-design" class="md-nav__link">
+  <a href="#anti-dupe-security-protection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🛡️ Anti-Dupe Security &amp; HCI Design
+        🛡️ Anti-Dupe Security &amp; Protection
       
     </span>
   </a>
@@ -925,42 +925,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/governance/" class="md-nav__link">
+      <a href="../../reference/faq/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Architecture & Governance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/walkthrough-es/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Walkthrough (Español)
+    FAQ & Troubleshooting
   
 
     
@@ -1008,10 +980,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#anti-dupe-security-hci-design" class="md-nav__link">
+  <a href="#anti-dupe-security-protection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🛡️ Anti-Dupe Security &amp; HCI Design
+        🛡️ Anti-Dupe Security &amp; Protection
       
     </span>
   </a>
@@ -1088,16 +1060,16 @@
   
 
 
-<h1 id="gui-customization-anti-dupe-architecture">🎨 GUI Customization &amp; Anti-Dupe Architecture</h1>
+<h1 id="gui-customization-anti-dupe-protection">🎨 GUI Customization &amp; Anti-Dupe Protection</h1>
 <p>All user interfaces in BlueHellStats are declarative, customizable via YAML files inside <code>plugins/BlueHellEssence/menus/</code>, and built with enterprise-grade anti-dupe security.</p>
 <hr />
-<h2 id="anti-dupe-security-hci-design">🛡️ Anti-Dupe Security &amp; HCI Design</h2>
-<p>Virtual menus in Minecraft can be susceptible to item duplication and ghost item glitches if poorly designed. BlueHellStats employs a multi-tiered security model:</p>
+<h2 id="anti-dupe-security-protection">🛡️ Anti-Dupe Security &amp; Protection</h2>
+<p>Virtual menus in Minecraft can be susceptible to item duplication and ghost item glitches if poorly designed. BlueHellStats employs a comprehensive security shield:</p>
 <ol>
-<li><strong>Priority Cancellation:</strong> All <code>InventoryClickEvent</code> and <code>InventoryDragEvent</code> occurrences in any plugin menu are cancelled at <code>EventPriority.HIGHEST</code>.</li>
+<li><strong>Strict Interaction Cancellation:</strong> All inventory clicks, drags, and item movements are strictly intercepted and cancelled before they can affect inventories.</li>
 <li><strong>Hotbar Swap &amp; Injection Shield:</strong> Number key swaps (1-9), shift-clicks, off-hand swaps (<code>F</code>), and double-clicks are completely blocked.</li>
-<li><strong>Macro Debouncing:</strong> An internal 150ms per-player debouncer prevents autoclicker race conditions during menu transitions.</li>
-<li><strong>PDC Navigation Routing:</strong> Buttons store routing metadata in Paper's <code>PersistentDataContainer</code> (PDC), never relying on mutable item display names or lore.</li>
+<li><strong>Macro &amp; Autoclicker Debouncing:</strong> An internal per-player debouncer prevents rapid autoclickers and packet flood race conditions during menu transitions.</li>
+<li><strong>Tamper-Proof Action Metadata:</strong> Menu buttons store navigation actions in persistent item metadata, ensuring menus cannot be exploited by item renaming, anvil tampering, or custom resource packs.</li>
 </ol>
 <hr />
 <h2 id="menu-configurations">📁 Menu Configurations</h2>
@@ -1151,9 +1123,11 @@
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nt">lore</span><span class="p">:</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"&lt;gray&gt;Score:&lt;/gray&gt;</span><span class="nv"> </span><span class="s">&lt;white&gt;&lt;score&gt;&lt;/white&gt;"</span>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"&lt;gray&gt;Leaderboard</span><span class="nv"> </span><span class="s">Rank:&lt;/gray&gt;</span><span class="nv"> </span><span class="s">&lt;gold&gt;&lt;rank&gt;&lt;/gold&gt;"</span>
-</span></code></pre></div>
-* <strong>Interactive Navigation:</strong> Clicking any player head in <code>/top &lt;stat&gt;</code> opens their multi-stat profile.
-* <strong>Pagination:</strong> Automatically distributes categories across pages if the server configures more stats than slots.</p>
+</span></code></pre></div></p>
+<ul>
+<li><strong>Interactive Navigation:</strong> Clicking any player head in <code>/top &lt;stat&gt;</code> opens their multi-stat profile.</li>
+<li><strong>Automatic Pagination:</strong> Automatically distributes categories across multiple pages if you configure more stats than available slots.</li>
+</ul>
 
 
 

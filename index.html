@@ -417,6 +417,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌟 Key Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#navigation-guide" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -428,10 +439,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture-philosophy" class="md-nav__link">
+  <a href="#built-for-production-servers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💡 Architecture &amp; Philosophy
+        💡 Built for Production Servers
       
     </span>
   </a>
@@ -881,42 +892,14 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/governance/" class="md-nav__link">
+      <a href="reference/faq/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Architecture & Governance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="reference/walkthrough-es/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Walkthrough (Español)
+    FAQ & Troubleshooting
   
 
     
@@ -964,6 +947,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌟 Key Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#navigation-guide" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -975,10 +969,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture-philosophy" class="md-nav__link">
+  <a href="#built-for-production-servers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💡 Architecture &amp; Philosophy
+        💡 Built for Production Servers
       
     </span>
   </a>
@@ -1006,7 +1000,18 @@
 
 
 <h1 id="bluehellstats-documentation">⚡ BlueHellStats Documentation</h1>
-<p>Welcome to the official documentation for <strong>BlueHellStats</strong> (also known as <em>BlueHellEssence</em>), the enterprise-grade statistics tracking, leaderboard visualization, in-world 3D podium, and automated seasonal tournament engine designed exclusively for Paper 1.21+ Minecraft servers.</p>
+<p>Welcome to the official documentation for <strong>BlueHellStats</strong>, the premium statistics tracking, leaderboard visualization, in-world 3D podium, and automated seasonal tournament engine engineered exclusively for modern Paper 1.21+ Minecraft servers and networks.</p>
+<hr />
+<h2 id="key-features">🌟 Key Features</h2>
+<ul>
+<li><strong>⚡ Ultra-Low Latency &amp; Zero Tick Lag:</strong> Engineered from the ground up for massive player counts. All database queries, score updates, and leaderboard sorting run strictly in the background without affecting your server's 20.0 TPS.</li>
+<li><strong>🗿 In-World 3D Podiums:</strong> Showcase your top players right in your spawn or lobby using vanilla ArmorStands, Citizens NPCs, or FancyNpcs with rotating floating billboards.</li>
+<li><strong>🏆 Automated Seasons &amp; Tournaments:</strong> Schedule monthly or custom seasons with automatic resets, reward queuing for winners, and an interactive Hall of Fame browser.</li>
+<li><strong>🔌 Dynamic Custom Event Engine:</strong> Track custom actions from <em>any</em> 3rd-party plugin (custom items, bosses, skills, minigames) directly from <code>stats.yml</code> without writing a single line of Java code.</li>
+<li><strong>🎨 Fully Customizable Menus:</strong> Modern declarative YAML menus with freeform slot positioning, pagination, player profile inspection, and military-grade anti-dupe security.</li>
+<li><strong>🌐 Network-Ready Storage:</strong> Native support for SQLite (single server) as well as MySQL, MariaDB, and PostgreSQL with connection pooling for multi-server BungeeCord and Velocity networks.</li>
+<li><strong>📑 Extensive PlaceholderAPI Integration:</strong> Instantly show personal stats, rankings, top lists, and season countdowns on scoreboards, chat, and tablists with zero lag.</li>
+</ul>
 <hr />
 <h2 id="navigation-guide">🧭 Navigation Guide</h2>
 <p>Explore our comprehensive guides below or use the navigation tabs above:</p>
@@ -1020,57 +1025,53 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong><a href="getting-started/quick-start/">Quick Start</a></strong></td>
-<td style="text-align: left;">Prerequisites, installation, and first-time server boot guide.</td>
+<td style="text-align: left;">Installation, prerequisites, and first-time server boot guide.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="getting-started/database/">Database Configuration</a></strong></td>
-<td style="text-align: left;">Setup SQLite for single servers or MySQL/MariaDB/PostgreSQL for multi-server proxy networks.</td>
+<td style="text-align: left;">Setup SQLite for single servers or MySQL/MariaDB/PostgreSQL for networks.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="features/stats/">Statistics Configuration</a></strong></td>
-<td style="text-align: left;">Declare custom stat categories, tracking events, WorldGuard regions, multipliers, and milestones.</td>
+<td style="text-align: left;">Declare stat categories, condition filters, WorldGuard regions, and milestones.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="features/custom-events/">Dynamic Custom Events</a></strong></td>
-<td style="text-align: left;">Zero-overhead dynamic event interception engine powered by precompiled JVM <code>MethodHandle</code> chains.</td>
+<td style="text-align: left;">Hook and track events from 3rd-party plugins without coding.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="features/podiums/">In-World 3D Podiums</a></strong></td>
-<td style="text-align: left;">Setup physical podium statues using Paper ArmorStands, Citizens2, or FancyNpcs with floating billboards.</td>
+<td style="text-align: left;">Create physical podium statues with ArmorStands, Citizens, or FancyNpcs.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="features/guis/">GUI Customization</a></strong></td>
-<td style="text-align: left;">Freeform slot mapping, hardened anti-dupe security, and player profile inspection menus (<code>menus/</code>).</td>
+<td style="text-align: left;">Customize menus, layouts, pagination, and player profile inspection.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="features/seasons/">Seasons &amp; Tournaments</a></strong></td>
-<td style="text-align: left;">Automated season duration, Two-Phase Rollover Barrier, reward queuing, and Hall of Fame browsing.</td>
+<td style="text-align: left;">Schedule tournaments, configure winner rewards, and view the Hall of Fame.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="reference/commands/">Commands &amp; Permissions</a></strong></td>
-<td style="text-align: left;">Complete reference of administrator, player, season, and podium commands and permission nodes.</td>
+<td style="text-align: left;">Complete reference table of all player and administrator commands.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="reference/placeholders/">PlaceholderAPI Reference</a></strong></td>
-<td style="text-align: left;">Complete table of all $O(1)$ memory-cached placeholders for scoreboards, chat, and menus.</td>
+<td style="text-align: left;">Full list of placeholders for scoreboards, chat, and menus.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><a href="reference/governance/">Architecture &amp; Governance</a></strong></td>
-<td style="text-align: left;">Deep architectural guidelines, clean architecture layering, and write-behind concurrency patterns.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong><a href="reference/walkthrough-es/">Guía Paso a Paso (Español)</a></strong></td>
-<td style="text-align: left;">Tutorial detallado de configuración, despliegue y personalización en español.</td>
+<td style="text-align: left;"><strong><a href="reference/faq/">FAQ &amp; Troubleshooting</a></strong></td>
+<td style="text-align: left;">Answers to common setup questions and troubleshooting tips.</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="architecture-philosophy">💡 Architecture &amp; Philosophy</h2>
-<p>BlueHellStats is engineered following <strong>Pragmatic Clean Architecture</strong>:
-1. <strong>The Bukkit Tick Loop (20 TPS) is Sacred:</strong> All disk I/O, network communication, database reads/writes, dirty delta flushes, and rank sortings are strictly offloaded to asynchronous background worker pools.
-2. <strong>Immutability by Default:</strong> All domain entities are represented by immutable <strong>Java 21 Records</strong> (<code>StatDefinition</code>, <code>PlayerProfile</code>, <code>LeaderboardEntry</code>, <code>PodiumConfig</code>).
-3. <strong>Hardened Security:</strong> Anti-dupe GUI pipelines cancel events at <code>HIGHEST</code> priority, blocking hotbar swapping, item injection, drag duplication, and macro spam.
-4. <strong>Resilient Network Synchronization:</strong> Two-phase distributed lock barrier prevents race conditions and duplicate reward deliveries across multi-server proxy environments.</p>
+<h2 id="built-for-production-servers">💡 Built for Production Servers</h2>
+<p>BlueHellStats is crafted to give server owners peace of mind:
+1. <strong>Uncompromising Performance:</strong> Player stat changes are batched safely in memory and saved asynchronously in the background. Disk and database operations will never freeze your main tick loop.
+2. <strong>Rock-Solid Data Safety:</strong> Even during sudden disconnects or server restarts, all pending player stats are committed cleanly to storage so progress is never lost.
+3. <strong>Hardened Exploitation Shields:</strong> Virtual menus enforce comprehensive anti-dupe checks that cancel illicit clicks, hotbar number swaps, off-hand swaps, and fast-click macro spam.
+4. <strong>Seamless Multi-Server Scalability:</strong> Scale from a single survival server to a multi-proxy network with real-time leaderboard synchronization across all your server nodes.</p>
 
 
 

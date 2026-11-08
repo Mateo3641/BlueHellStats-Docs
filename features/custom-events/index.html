@@ -670,10 +670,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#technical-architecture-why-is-it-lag-free" class="md-nav__link">
+  <a href="#how-to-find-event-names-for-any-plugin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚡ Technical Architecture: Why is it Lag-Free?
+        🔍 How to Find Event Names for Any Plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-guarantee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ Performance Guarantee
       
     </span>
   </a>
@@ -897,42 +908,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/governance/" class="md-nav__link">
+      <a href="../../reference/faq/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Architecture & Governance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/walkthrough-es/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Walkthrough (Español)
+    FAQ & Troubleshooting
   
 
     
@@ -1002,10 +985,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#technical-architecture-why-is-it-lag-free" class="md-nav__link">
+  <a href="#how-to-find-event-names-for-any-plugin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚡ Technical Architecture: Why is it Lag-Free?
+        🔍 How to Find Event Names for Any Plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-guarantee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ Performance Guarantee
       
     </span>
   </a>
@@ -1033,10 +1027,10 @@
 
 
 <h1 id="zero-overhead-dynamic-custom-event-engine">🔌 Zero-Overhead Dynamic Custom Event Engine</h1>
-<p>BlueHellStats features an event interception engine that allows you to hook and track events emitted by <strong>any 3rd-party plugin</strong> (e.g. custom turrets, slimefun machines, jobs, custom bosses) without having to add compile-time Maven dependencies.</p>
+<p>BlueHellStats features an event interception engine that allows you to hook and track events emitted by <strong>any 3rd-party plugin</strong> (such as custom turrets, custom enchants, slimefun items, custom bosses, or jobs) directly from your configuration, <strong>without needing custom addons or programming</strong>.</p>
 <hr />
 <h2 id="configuration-syntax-statsyml">🚀 Configuration Syntax (<code>stats.yml</code>)</h2>
-<p>Set <code>event: CUSTOM</code> and declare the <code>custom_event_data</code> block:</p>
+<p>To track an external plugin's event, set <code>event: CUSTOM</code> and configure the <code>custom_event_data</code> section:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">stats</span><span class="p">:</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">turrets_placed</span><span class="p">:</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">display-name</span><span class="p">:</span><span class="w"> </span><span class="s">"&lt;yellow&gt;Turrets</span><span class="nv"> </span><span class="s">Placed&lt;/yellow&gt;"</span>
@@ -1065,36 +1059,41 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><code>event</code></td>
-<td style="text-align: left;">The fully-qualified Java class name of the event.</td>
+<td style="text-align: left;">The full event class name provided by the 3rd-party plugin.</td>
 <td style="text-align: left;"><code>"dt.ajneb97.api.TurretPlaceEvent"</code></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>player_variable</code></td>
-<td style="text-align: left;">Method chain returning the <code>Player</code> performing the event.</td>
+<td style="text-align: left;">The method path returning the player responsible for the event.</td>
 <td style="text-align: left;"><code>"getPlayer()"</code> or <code>"getEntity()"</code></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>variables_to_capture</code></td>
-<td style="text-align: left;">List of <code>&lt;placeholder&gt;;&lt;getter_method_path&gt;</code>.</td>
+<td style="text-align: left;">List of placeholders and their getter method chains.</td>
 <td style="text-align: left;"><code>"%world%;getLocation().getWorld().getName()"</code></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>conditions</code></td>
-<td style="text-align: left;">Logic checks comparing captured placeholders.</td>
+<td style="text-align: left;">Logic checks comparing captured variables before incrementing.</td>
 <td style="text-align: left;"><code>"%world% equals world"</code>, <code>"%level% &gt;= 5"</code></td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="technical-architecture-why-is-it-lag-free">⚡ Technical Architecture: Why is it Lag-Free?</h2>
-<p>Traditional dynamic event reflection in Bukkit plugins uses <code>java.lang.reflect.Method.invoke()</code>, which causes significant overhead and garbage allocation.</p>
-<p>BlueHellStats eliminates this:
-1. <strong>Boot Compilation via <code>MethodHandleChain</code>:</strong>
-   During server startup or <code>/bhe reload</code>, the method paths (e.g. <code>getLocation().getWorld().getName()</code>) are parsed and compiled into high-performance <code>java.lang.invoke.MethodHandle</code>s linked directly to the JVM call site.
-2. <strong>Native Bukkit <code>EventExecutor</code>:</strong>
-   The event listener registers directly into Bukkit's <code>HandlerList</code> via <code>pluginManager.registerEvent()</code>, bypassing heavy listener proxying.
-3. <strong>Bytecode Invocation ($O(1)$):</strong>
-   When the event fires, methods are invoked through pre-bound <code>MethodHandle.invokeExact()</code> / <code>invoke()</code>, running at near-native compiled Java speed.</p>
+<h2 id="how-to-find-event-names-for-any-plugin">🔍 How to Find Event Names for Any Plugin</h2>
+<p>Most plugin developers publish their API event names in their documentation or GitHub repositories.</p>
+<ol>
+<li><strong>Check the plugin's documentation:</strong> Look for an "API" or "Developer" section (for example: <code>com.sk89q.worldguard.protection.events.DisallowedPVPEvent</code>).</li>
+<li><strong>Identify the player getter:</strong> Typically <code>getPlayer()</code>, <code>getEntity()</code>, or <code>getDamager()</code>.</li>
+<li><strong>Capture contextual values:</strong> You can chain standard Java getter methods, such as <code>getItem().getType().name()</code> or <code>getLocation().getWorld().getName()</code>.</li>
+</ol>
+<hr />
+<h2 id="performance-guarantee">⚡ Performance Guarantee</h2>
+<p>Tracking dynamic events in other plugins often causes severe lag spikes if implemented poorly. </p>
+<p>BlueHellStats solves this completely:
+* <strong>Pre-Compiled at Startup:</strong> Method chains are resolved and compiled into high-speed executable handles during server startup and <code>/bhe reload</code>.
+* <strong>Zero Runtime Overhead:</strong> When events fire in game, conditions are checked at near-native compiled speed with zero memory allocation or CPU overhead.
+* <strong>Safe Fallbacks:</strong> If a configured plugin is not installed or the event class is not found, BlueHellStats logs a clean warning in console without crashing your server.</p>
 
 
 

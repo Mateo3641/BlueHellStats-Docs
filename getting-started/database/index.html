@@ -581,10 +581,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#write-behind-caching-architecture" class="md-nav__link">
+  <a href="#performance-data-safety-guarantees" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚡ Write-Behind Caching Architecture
+        ⚡ Performance &amp; Data Safety Guarantees
       
     </span>
   </a>
@@ -925,42 +925,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/governance/" class="md-nav__link">
+      <a href="../../reference/faq/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Architecture & Governance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/walkthrough-es/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Walkthrough (Español)
+    FAQ & Troubleshooting
   
 
     
@@ -1058,10 +1030,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#write-behind-caching-architecture" class="md-nav__link">
+  <a href="#performance-data-safety-guarantees" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚡ Write-Behind Caching Architecture
+        ⚡ Performance &amp; Data Safety Guarantees
       
     </span>
   </a>
@@ -1089,12 +1061,12 @@
 
 
 <h1 id="database-configuration">⚙️ Database Configuration</h1>
-<p>BlueHellStats provides an asynchronous database layer powered by <strong>HikariCP</strong> connection pooling and automatic schema migrations.</p>
+<p>BlueHellStats provides a high-performance, asynchronous database engine powered by enterprise-grade <strong>HikariCP</strong> connection pooling and automatic schema management.</p>
 <hr />
 <h2 id="supported-database-engines">🗄️ Supported Database Engines</h2>
 <p>Configure your storage engine in <code>plugins/BlueHellEssence/config.yml</code>:</p>
 <h3 id="1-sqlite-default-single-server-local">1. SQLite (Default — Single Server / Local)</h3>
-<p>Ideal for single-server setups, survival servers, or local testing. Zero installation required.</p>
+<p>Ideal for single-server setups, survival servers, or testing environments. Requires zero setup or external services.</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">locale</span><span class="p">:</span><span class="w"> </span><span class="s">"en"</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">database</span><span class="p">:</span>
@@ -1103,7 +1075,7 @@
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="s">"bluehell.db"</span>
 </span></code></pre></div>
 <h3 id="2-mysql-mariadb-multi-server-network-bungee-velocity">2. MySQL / MariaDB (Multi-Server Network / Bungee / Velocity)</h3>
-<p>Ideal for networks hosted across multiple nodes or managed via phpMyAdmin/Pterodactyl.</p>
+<p>Ideal for networks hosted across multiple nodes, shared dedicated servers, or managed via phpMyAdmin/Pterodactyl.</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">locale</span><span class="p">:</span><span class="w"> </span><span class="s">"en"</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">database</span><span class="p">:</span>
@@ -1124,7 +1096,7 @@
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="nt">leaderboard-top-size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
 </span></code></pre></div>
 <h3 id="3-postgresql-enterprise-high-performance">3. PostgreSQL (Enterprise High-Performance)</h3>
-<p>Recommended for massive network scale with ultra-low query latency and advanced connection pooling.</p>
+<p>Recommended for massive network scales requiring ultra-low latency, robust connection pooling, and heavy concurrent player traffic.</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">locale</span><span class="p">:</span><span class="w"> </span><span class="s">"en"</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">database</span><span class="p">:</span>
@@ -1138,12 +1110,14 @@
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nt">ssl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </span></code></pre></div>
 <hr />
-<h2 id="write-behind-caching-architecture">⚡ Write-Behind Caching Architecture</h2>
-<p>To guarantee that the Bukkit tick thread is never stalled:
-1. <strong>In-Memory Mutations:</strong> When players break blocks, kill mobs, or trigger stats, their score delta is accumulated into a local concurrent RAM cache (<code>dirtyDeltas</code>) in nanoseconds.
-2. <strong>Periodic Batch Flushing:</strong> Every <code>flush-interval-seconds</code> (default: 20s), an asynchronous background worker drains dirty deltas and sends batch SQL statements (<code>executeBatch()</code>) within a single database transaction.
-3. <strong>Session Flush on Disconnect:</strong> When a player disconnects (<code>PlayerQuitEvent</code>), any pending uncommitted delta is immediately flushed asynchronously to ensure zero stat loss.
-4. <strong>Clean Server Shutdown:</strong> On <code>onDisable()</code>, the plugin blocks gracefully until all pending database writes finish before closing the HikariCP connection pool.</p>
+<h2 id="performance-data-safety-guarantees">⚡ Performance &amp; Data Safety Guarantees</h2>
+<p>To ensure that your server runs smoothly with consistent 20.0 TPS even during high player activity:</p>
+<ul>
+<li><strong>Asynchronous Execution:</strong> Database operations, connection handshakes, and queries never run on your main server thread. Your gameplay and tick rates remain completely unaffected.</li>
+<li><strong>Smart Memory Caching:</strong> Stat increments are tracked instantly in memory and batched before saving, minimizing database disk writes and network load.</li>
+<li><strong>Zero Stat Loss on Disconnect:</strong> Whenever a player leaves the server, any uncommitted progress is immediately committed to storage in the background.</li>
+<li><strong>Safe Server Shutdowns:</strong> When the server stops or restarts, BlueHellStats ensures all pending stat saves are safely finalized before releasing database connections.</li>
+</ul>
 
 
 
