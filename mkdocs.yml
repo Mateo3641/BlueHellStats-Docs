@@ -1,0 +1,81 @@
+site_name: BlueHellStats Documentation
+site_description: Official public documentation for BlueHellStats (BlueHellEssence) Paper 1.21+
+site_author: Mateo3641
+site_url: https://mateo3641.github.io/BlueHellStats-Docs/
+repo_name: Mateo3641/BlueHellStats-Docs
+repo_url: https://github.com/Mateo3641/BlueHellStats-Docs
+edit_uri: blob/main/docs/
+
+theme:
+  name: material
+  language: en
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Quick Start: getting-started/quick-start.md
+      - Database Configuration: getting-started/database.md
+  - Features:
+      - In-World 3D Podiums: features/podiums.md
+      - Dynamic Custom Events: features/custom-events.md
+      - Statistics & Milestones: features/stats.md
+      - GUI Customization & Profiles: features/guis.md
+      - Seasons & Tournaments: features/seasons.md
+  - Reference:
+      - Commands & Permissions: reference/commands.md
+      - PlaceholderAPI Reference: reference/placeholders.md
+      - Architecture & Governance: reference/governance.md
+      - Walkthrough (Español): reference/walkthrough-es.md
