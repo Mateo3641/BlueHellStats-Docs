@@ -764,6 +764,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#custom-resource-packs-head-textures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎭 Custom Resource Packs &amp; Head Textures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎭 Custom Resource Packs &amp; Head Textures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-custom-textured-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Custom-Textured Item
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -788,6 +816,34 @@
     
   
     Seasons & Tournaments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../boosters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Global Stat Boosters
   
 
     
@@ -925,6 +981,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../reference/developer-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../reference/faq/" class="md-nav__link">
         
   
@@ -1040,6 +1124,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#custom-resource-packs-head-textures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎭 Custom Resource Packs &amp; Head Textures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎭 Custom Resource Packs &amp; Head Textures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-custom-textured-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Custom-Textured Item
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1128,6 +1240,56 @@
 <li><strong>Interactive Navigation:</strong> Clicking any player head in <code>/top &lt;stat&gt;</code> opens their multi-stat profile.</li>
 <li><strong>Automatic Pagination:</strong> Automatically distributes categories across multiple pages if you configure more stats than available slots.</li>
 </ul>
+<hr />
+<h2 id="custom-resource-packs-head-textures">🎭 Custom Resource Packs &amp; Head Textures</h2>
+<p>BlueHellStats seamlessly integrates with popular custom item and resource-pack plugins without requiring any manual setup or hard dependencies:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Format</th>
+<th style="text-align: left;">Example</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ItemsAdder</strong></td>
+<td style="text-align: left;"><code>itemsadder:bluehell:gold_trophy</code> (or <code>ia:...</code>)</td>
+<td style="text-align: left;">Resolves a custom ItemsAdder stack directly in any menu slot.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Oraxen</strong></td>
+<td style="text-align: left;"><code>oraxen:emerald_crown</code> (or <code>oxn:...</code>)</td>
+<td style="text-align: left;">Resolves a custom Oraxen item directly in any menu slot.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nexo</strong></td>
+<td style="text-align: left;"><code>nexo:ruby_badge</code></td>
+<td style="text-align: left;">Resolves a custom Nexo item directly in any menu slot.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Base64 Heads</strong></td>
+<td style="text-align: left;"><code>basehead-&lt;base64&gt;</code> (or <code>head:&lt;base64&gt;</code>)</td>
+<td style="text-align: left;">Renders custom textured player heads without needing online player profiles.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CustomModelData</strong></td>
+<td style="text-align: left;"><code>custom-model-data: 2025</code></td>
+<td style="text-align: left;">Supported on static buttons as well as dynamic templates (<code>entry</code>, <code>player_card</code>, and <code>stat_entry</code>).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-custom-textured-item">Example Custom-Textured Item</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">items</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">hall_of_fame_btn</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">slot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">material</span><span class="p">:</span><span class="w"> </span><span class="s">"itemsadder:server_ui:trophy_gold"</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">custom-model-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1050</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OPEN_HOF</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"&lt;gold&gt;&lt;bold&gt;Hall</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Fame&lt;/bold&gt;&lt;/gold&gt;"</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">lore</span><span class="p">:</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"&lt;gray&gt;Inspect</span><span class="nv"> </span><span class="s">past</span><span class="nv"> </span><span class="s">tournament</span><span class="nv"> </span><span class="s">winners!&lt;/gray&gt;"</span>
+</span></code></pre></div>
 
 
 

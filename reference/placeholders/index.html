@@ -18,7 +18,7 @@
         <link rel="prev" href="../commands/">
       
       
-        <link rel="next" href="../faq/">
+        <link rel="next" href="../developer-api/">
       
       
         
@@ -690,6 +690,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/boosters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Global Stat Boosters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -881,10 +909,49 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#active-booster-placeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Active Booster Placeholders
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -978,6 +1045,17 @@
     <span class="md-ellipsis">
       
         🗓️ Season &amp; Tournament Placeholders
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-booster-placeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Active Booster Placeholders
       
     </span>
   </a>
@@ -1113,6 +1191,39 @@
 <td style="text-align: left;"><code>%bluehell_history_&lt;season&gt;_&lt;stat&gt;_&lt;rank&gt;_score_formatted%</code></td>
 <td style="text-align: left;">Formatted final score of past season podium placement.</td>
 <td style="text-align: left;"><code>2,500</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="active-booster-placeholders">🚀 Active Booster Placeholders</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Output Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>%bluehell_booster_active%</code></td>
+<td style="text-align: left;">Whether any global or stat booster is currently running.</td>
+<td style="text-align: left;"><code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>%bluehell_booster_multiplier_&lt;stat_id&gt;%</code></td>
+<td style="text-align: left;">Current effective multiplier applying to <code>&lt;stat_id&gt;</code>.</td>
+<td style="text-align: left;"><code>2.0x</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>%bluehell_booster_remaining_&lt;stat_id&gt;%</code></td>
+<td style="text-align: left;">Remaining duration of the governing booster (or <code>None</code>).</td>
+<td style="text-align: left;"><code>29m 14s</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>%bluehell_booster_sponsor_&lt;stat_id&gt;%</code></td>
+<td style="text-align: left;">Sponsor name attached to the governing booster (or <code>None</code>).</td>
+<td style="text-align: left;"><code>Steve</code></td>
 </tr>
 </tbody>
 </table>

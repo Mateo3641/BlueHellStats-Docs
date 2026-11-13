@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://mateo3641.github.io/BlueHellStats-Docs/reference/commands/">
       
       
-        <link rel="prev" href="../../features/seasons/">
+        <link rel="prev" href="../../features/boosters/">
       
       
         <link rel="next" href="../placeholders/">
@@ -690,6 +690,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/boosters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Global Stat Boosters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -865,6 +893,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#booster-sub-commands-bhe-booster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Booster Sub-commands (/bhe booster)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -905,6 +944,34 @@
     
   
     PlaceholderAPI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer API
   
 
     
@@ -1018,6 +1085,17 @@
     <span class="md-ellipsis">
       
         🪧 Hologram Sub-commands (/bhe holo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booster-sub-commands-bhe-booster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Booster Sub-commands (/bhe booster)
       
     </span>
   </a>
@@ -1181,6 +1259,33 @@
 <tr>
 <td style="text-align: left;"><code>/bhe holo remove &lt;name\|stat&gt;</code></td>
 <td style="text-align: left;">Remove a floating leaderboard hologram.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="booster-sub-commands-bhe-booster">🚀 Booster Sub-commands (<code>/bhe booster</code>)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sub-command</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>/bhe booster start &lt;stat\|all&gt; &lt;multiplier&gt; &lt;duration&gt; [sponsor]</code></td>
+<td style="text-align: left;">Activate a timed global or stat-specific multiplier (e.g. <code>/bhe booster start all 2.0 1h Steve</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>/bhe booster stop &lt;stat\|all&gt;</code></td>
+<td style="text-align: left;">Stop an active stat-specific or global booster.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>/bhe booster clear</code></td>
+<td style="text-align: left;">Stop all currently running boosters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>/bhe booster list</code></td>
+<td style="text-align: left;">List all active boosters with remaining time and sponsors.</td>
 </tr>
 </tbody>
 </table>
