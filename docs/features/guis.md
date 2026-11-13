@@ -24,12 +24,19 @@ title: "<dark_gray>Hall of Fame - Categories</dark_gray>"
 rows: 4
 items:
   diamonds_category:
-    slot: 11
+    slot: 10
     material: DIAMOND
     action: OPEN_STAT:diamonds_mined
     name: "<aqua><bold>Diamonds Mined</bold></aqua>"
     lore:
-      - "<gray>Click to view leaderboard rankings!</gray>"
+      - "<gray>Your Score: <aqua><score_formatted></aqua> (<gold><rank></gold>)</gray>"
+      - "<progress_bar> <gray>(<progress_percent>)</gray>"
+      - "<yellow>▶ Click to open leaderboard</yellow>"
+  claim_rewards:
+    slot: 24
+    material: CHEST_MINECART
+    action: CLAIM_REWARDS
+    name: "<green><bold>Claim Season Rewards</bold></green>"
 ```
 
 ### 2. Leaderboard Menu (`menus/top.yml`)
@@ -56,22 +63,42 @@ items:
     material: PLAYER_HEAD
     action: PLAYER_STATS # Opens personal profile
     name: "<gold>Your Rank: <rank></gold>"
+    lore:
+      - "<gray>Your score: <yellow><score_formatted></yellow></gray>"
+      - "<gray>Next milestone: <aqua><next_milestone></aqua></gray>"
+      - "<progress_bar> <gray>(<progress_percent>)</gray>"
 ```
 
 ### 3. Detailed Player Profile (`menus/profile.yml`)
-Shows all statistics, scores, and network ranks for a specific player:
+Shows all statistics, scores, milestone progress, and network ranks for a specific player:
 ```yaml
-title: "<dark_gray>Profile: <player></dark_gray>"
-rows: 6
+title: "<dark_gray>Profile - <player></dark_gray>"
+rows: 5
+player_card:
+  slot: 4
+  material: PLAYER_HEAD
+  name: "<gold><bold><player></bold></gold>"
 stat_slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34]
-previous_page_slot: 45
-next_page_slot: 53
-stat_item:
-  material: BOOK
-  name: "<yellow><stat_display></yellow>"
+stat_entry:
+  name: "<yellow><bold><stat_display></bold></yellow>"
   lore:
-    - "<gray>Score:</gray> <white><score></white>"
-    - "<gray>Leaderboard Rank:</gray> <gold><rank></gold>"
+    - "<gray>Score: <aqua><score_formatted></aqua></gray>"
+    - "<gray>Ranking: <gold><rank></gold></gray>"
+    - "<gray>Next Milestone: <yellow><next_milestone></yellow></gray>"
+    - "<progress_bar> <gray>(<progress_percent>)</gray>"
+items:
+  prev_page:
+    slot: 37
+    material: ARROW
+    action: PREVIOUS_PAGE
+  claim_rewards:
+    slot: 40
+    material: CHEST_MINECART
+    action: CLAIM_REWARDS
+  next_page:
+    slot: 43
+    material: ARROW
+    action: NEXT_PAGE
 ```
 
 * **Interactive Navigation:** Clicking any player head in `/top <stat>` opens their multi-stat profile.
