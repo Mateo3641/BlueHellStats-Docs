@@ -792,6 +792,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#visual-progress-bars-gui-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Visual Progress Bars &amp; GUI Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Visual Progress Bars &amp; GUI Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-button-action-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Button action Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1152,6 +1180,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#visual-progress-bars-gui-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Visual Progress Bars &amp; GUI Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Visual Progress Bars &amp; GUI Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-button-action-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Button action Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1290,6 +1346,23 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">lore</span><span class="p">:</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"&lt;gray&gt;Inspect</span><span class="nv"> </span><span class="s">past</span><span class="nv"> </span><span class="s">tournament</span><span class="nv"> </span><span class="s">winners!&lt;/gray&gt;"</span>
 </span></code></pre></div>
+<hr />
+<h2 id="visual-progress-bars-gui-actions">📊 Visual Progress Bars &amp; GUI Actions</h2>
+<p>Any statistic card in <code>menus/hub.yml</code>, <code>menus/top.yml</code> (<code>my_stats</code>), or <code>menus/profile.yml</code> (<code>stat_entry</code>) supports dynamic milestone progress placeholders:</p>
+<ul>
+<li><code>&lt;progress_bar&gt;</code> — Renders a 10-segment MiniMessage progress bar (<code>■■■■■□□□□□</code>) toward the next milestone.</li>
+<li><code>&lt;progress_percent&gt;</code> — Renders percentage progress (e.g. <code>50%</code> or <code>100%</code>).</li>
+<li><code>&lt;next_milestone&gt;</code> — Displays the next threshold value formatted with commas (or <code>MAX</code> once all milestones are unlocked).</li>
+</ul>
+<h3 id="supported-button-action-values">Supported Button <code>action</code> Values</h3>
+<ul>
+<li><code>OPEN_STAT:&lt;stat_id&gt;</code> — Opens the Top 10 leaderboard menu for <code>&lt;stat_id&gt;</code>.</li>
+<li><code>OPEN_PROFILE</code> / <code>PLAYER_STATS</code> — Opens the player's profile grid.</li>
+<li><code>OPEN_HOF</code> — Opens the Seasonal Hall of Fame browser.</li>
+<li><code>CLAIM_REWARDS</code> — Closes the menu and claims all pending seasonal Top-3 rewards with configured sound feedback (<code>sounds.reward-claim</code> in <code>config.yml</code>).</li>
+<li><code>COMMAND:&lt;cmd&gt;</code> — Runs <code>&lt;cmd&gt;</code> as the clicking player (<code>%player%</code> supported).</li>
+<li><code>BACK</code>, <code>PREVIOUS_PAGE</code>, <code>NEXT_PAGE</code>, <code>CLOSE</code> — Built-in navigation controls (<code>sounds.gui-click</code> &amp; <code>sounds.gui-page-turn</code> in <code>config.yml</code>).</li>
+</ul>
 
 
 
