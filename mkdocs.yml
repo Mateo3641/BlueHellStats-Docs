@@ -74,7 +74,9 @@ nav:
       - Statistics & Milestones: features/stats.md
       - GUI Customization & Profiles: features/guis.md
       - Seasons & Tournaments: features/seasons.md
+      - Global Stat Boosters: features/boosters.md
   - Reference:
       - Commands & Permissions: reference/commands.md
       - PlaceholderAPI Reference: reference/placeholders.md
+      - Developer API: reference/developer-api.md
       - FAQ & Troubleshooting: reference/faq.md

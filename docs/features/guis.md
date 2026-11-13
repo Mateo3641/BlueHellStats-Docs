@@ -76,3 +76,30 @@ stat_item:
 
 * **Interactive Navigation:** Clicking any player head in `/top <stat>` opens their multi-stat profile.
 * **Automatic Pagination:** Automatically distributes categories across multiple pages if you configure more stats than available slots.
+
+---
+
+## 🎭 Custom Resource Packs & Head Textures
+
+BlueHellStats seamlessly integrates with popular custom item and resource-pack plugins without requiring any manual setup or hard dependencies:
+
+| Format | Example | Description |
+| :--- | :--- | :--- |
+| **ItemsAdder** | `itemsadder:bluehell:gold_trophy` (or `ia:...`) | Resolves a custom ItemsAdder stack directly in any menu slot. |
+| **Oraxen** | `oraxen:emerald_crown` (or `oxn:...`) | Resolves a custom Oraxen item directly in any menu slot. |
+| **Nexo** | `nexo:ruby_badge` | Resolves a custom Nexo item directly in any menu slot. |
+| **Base64 Heads** | `basehead-<base64>` (or `head:<base64>`) | Renders custom textured player heads without needing online player profiles. |
+| **CustomModelData** | `custom-model-data: 2025` | Supported on static buttons as well as dynamic templates (`entry`, `player_card`, and `stat_entry`). |
+
+### Example Custom-Textured Item
+```yaml
+items:
+  hall_of_fame_btn:
+    slot: 22
+    material: "itemsadder:server_ui:trophy_gold"
+    custom-model-data: 1050
+    action: OPEN_HOF
+    name: "<gold><bold>Hall of Fame</bold></gold>"
+    lore:
+      - "<gray>Inspect past tournament winners!</gray>"
+```

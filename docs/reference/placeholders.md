@@ -39,3 +39,14 @@ All placeholders read directly from concurrency-safe RAM caches ($O(1)$) and **n
 | `%bluehell_history_<season>_<stat>_<rank>_score%` | Final score of past season podium placement. | `2,500` |
 | `%bluehell_history_<season>_<stat>_<rank>_score_formatted%` | Formatted final score of past season podium placement. | `2,500` |
 
+---
+
+## 🚀 Active Booster Placeholders
+
+| Placeholder | Description | Output Example |
+| :--- | :--- | :--- |
+| `%bluehell_booster_active%` | Whether any global or stat booster is currently running. | `true` or `false` |
+| `%bluehell_booster_multiplier_<stat_id>%` | Current effective multiplier applying to `<stat_id>`. | `2.0x` |
+| `%bluehell_booster_remaining_<stat_id>%` | Remaining duration of the governing booster (or `None`). | `29m 14s` |
+| `%bluehell_booster_sponsor_<stat_id>%` | Sponsor name attached to the governing booster (or `None`). | `Steve` |
+

@@ -45,6 +45,15 @@ Master permission: `bluehell.admin` (granted to operators by default).
 | `/bhe holo create <stat> [rows] [name]` | Spawn a DecentHolograms floating leaderboard at your position. |
 | `/bhe holo remove <name\|stat>` | Remove a floating leaderboard hologram. |
 
+### 🚀 Booster Sub-commands (`/bhe booster`)
+
+| Sub-command | Description |
+| :--- | :--- |
+| `/bhe booster start <stat\|all> <multiplier> <duration> [sponsor]` | Activate a timed global or stat-specific multiplier (e.g. `/bhe booster start all 2.0 1h Steve`). |
+| `/bhe booster stop <stat\|all>` | Stop an active stat-specific or global booster. |
+| `/bhe booster clear` | Stop all currently running boosters. |
+| `/bhe booster list` | List all active boosters with remaining time and sponsors. |
+
 ---
 
 ## 🏆 Season Admin Commands (`/season`)
