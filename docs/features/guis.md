@@ -103,3 +103,21 @@ items:
     lore:
       - "<gray>Inspect past tournament winners!</gray>"
 ```
+
+---
+
+## 📊 Visual Progress Bars & GUI Actions
+
+Any statistic card in `menus/hub.yml`, `menus/top.yml` (`my_stats`), or `menus/profile.yml` (`stat_entry`) supports dynamic milestone progress placeholders:
+
+* `<progress_bar>` — Renders a 10-segment MiniMessage progress bar (`■■■■■□□□□□`) toward the next milestone.
+* `<progress_percent>` — Renders percentage progress (e.g. `50%` or `100%`).
+* `<next_milestone>` — Displays the next threshold value formatted with commas (or `MAX` once all milestones are unlocked).
+
+### Supported Button `action` Values
+* `OPEN_STAT:<stat_id>` — Opens the Top 10 leaderboard menu for `<stat_id>`.
+* `OPEN_PROFILE` / `PLAYER_STATS` — Opens the player's profile grid.
+* `OPEN_HOF` — Opens the Seasonal Hall of Fame browser.
+* `CLAIM_REWARDS` — Closes the menu and claims all pending seasonal Top-3 rewards with configured sound feedback (`sounds.reward-claim` in `config.yml`).
+* `COMMAND:<cmd>` — Runs `<cmd>` as the clicking player (`%player%` supported).
+* `BACK`, `PREVIOUS_PAGE`, `NEXT_PAGE`, `CLOSE` — Built-in navigation controls (`sounds.gui-click` & `sounds.gui-page-turn` in `config.yml`).

@@ -34,6 +34,24 @@ bhe booster start diamonds_mined 1.5 1h {username}
 
 ---
 
+## 🎨 Live BossBar & Audio Feedback (`config.yml`)
+
+Active boosters automatically display a synchronized Adventure **BossBar** countdown to online players and play an activation sound, configured cleanly in `config.yml`:
+
+```yaml
+boosters:
+  bossbar:
+    enabled: true
+    color: "YELLOW"
+    overlay: "PROGRESS"
+    title: "<gold><bold>⚡ %multiplier% BOOSTER</bold></gold> <gray>(%stat% • Sponsored by <yellow>%sponsor%</yellow>)</gray> <aqua>%remaining%</aqua>"
+
+sounds:
+  booster-start: "BLOCK_BEACON_ACTIVATE"
+```
+
+---
+
 ## 📑 Scoreboard & Chat Placeholders
 
 Display live booster announcements on scoreboards, action bars, or holograms via PlaceholderAPI:
@@ -42,3 +60,4 @@ Display live booster announcements on scoreboards, action bars, or holograms via
 * `%bluehell_booster_multiplier_kills%` — Current effective multiplier (e.g. `2.0x` or `1.0x`).
 * `%bluehell_booster_remaining_kills%` — Time remaining until expiration (e.g. `29m 45s` or `None`).
 * `%bluehell_booster_sponsor_kills%` — Name of the player or webstore sponsor (`Steve` or `None`).
+

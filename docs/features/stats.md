@@ -18,6 +18,9 @@ stats:
       entities: [PLAYER, ZOMBIE]
       game-modes: [SURVIVAL]
       ignore-silk-touch: true
+      ignore-player-placed: true # Anti-farm: ignore blocks placed by players
+      same-victim-cooldown-seconds: 300 # Anti-farm (PvP): cooldown before same victim counts again
+      ignore-same-ip: true # Anti-farm (PvP): block kill farming between shared-IP alts
       world-mode: WHITELIST # Options: WHITELIST or BLACKLIST
       worlds: [world, world_nether]
       regions: [arena_pvp] # WorldGuard region IDs
@@ -28,6 +31,9 @@ stats:
       - threshold: 100
         message: "<green>You reached 100 diamonds!</green>"
         broadcast: "<gold><player> reached 100 diamonds!</gold>"
+        title: "<gold><bold>MILESTONE UNLOCKED!</bold></gold>"
+        subtitle: "<yellow>100 Diamonds Mined</yellow>"
+        sound: "UI_TOAST_CHALLENGE_COMPLETE"
         commands:
           - "give %player% diamond 5"
     season-rewards:
@@ -46,9 +52,9 @@ stats:
 
 | Event Type | Bukkit Trigger Event | Supported Condition Filters |
 | :--- | :--- | :--- |
-| `BLOCK_BREAK` | `BlockBreakEvent` | `materials`, `ignore-silk-touch`, `game-modes`, `worlds`, `regions` |
+| `BLOCK_BREAK` | `BlockBreakEvent` | `materials`, `ignore-silk-touch`, `ignore-player-placed`, `game-modes`, `worlds`, `regions` |
 | `BLOCK_PLACE` | `BlockPlaceEvent` | `materials`, `game-modes`, `worlds`, `regions` |
-| `ENTITY_KILL` | `EntityDeathEvent` | `entities` (e.g. `PLAYER`, `ENDER_DRAGON`), `game-modes`, `worlds`, `regions` |
+| `ENTITY_KILL` | `EntityDeathEvent` | `entities` (e.g. `PLAYER`, `ENDER_DRAGON`), `same-victim-cooldown-seconds`, `ignore-same-ip`, `game-modes`, `worlds`, `regions` |
 | `ITEM_CRAFT` | `CraftItemEvent` | `materials`, `game-modes`, `worlds` |
 | `ITEM_CONSUME` | `PlayerItemConsumeEvent`| `materials`, `game-modes`, `worlds` |
 | `PLAYER_FISH` | `PlayerFishEvent` | `materials` (caught item), `game-modes`, `worlds` |
