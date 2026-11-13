@@ -1063,10 +1063,13 @@
 <li><strong>⚡ Ultra-Low Latency &amp; Zero Tick Lag:</strong> Engineered from the ground up for massive player counts. All database queries, score updates, and leaderboard sorting run strictly in the background without affecting your server's 20.0 TPS.</li>
 <li><strong>🗿 In-World 3D Podiums:</strong> Showcase your top players right in your spawn or lobby using vanilla ArmorStands, Citizens NPCs, or FancyNpcs with rotating floating billboards.</li>
 <li><strong>🏆 Automated Seasons &amp; Tournaments:</strong> Schedule monthly or custom seasons with automatic resets, reward queuing for winners, and an interactive Hall of Fame browser.</li>
+<li><strong>🚀 Global &amp; Tebex Stat Boosters:</strong> Trigger timed server-wide (<code>all</code>) or category-specific multipliers via <code>/bhe booster</code> with sponsor attribution, BossBar countdowns, and sound effects.</li>
+<li><strong>🛡️ Built-In Anti-Farm Protection:</strong> Safeguard leaderboards with <code>ignore-player-placed</code> block tracking, PvP <code>same-victim-cooldown-seconds</code>, and <code>ignore-same-ip</code> alt-account filtering.</li>
 <li><strong>🔌 Dynamic Custom Event Engine:</strong> Track custom actions from <em>any</em> 3rd-party plugin (custom items, bosses, skills, minigames) directly from <code>stats.yml</code> without writing a single line of Java code.</li>
-<li><strong>🎨 Fully Customizable Menus:</strong> Modern declarative YAML menus with freeform slot positioning, pagination, player profile inspection, and military-grade anti-dupe security.</li>
+<li><strong>🎨 Resource Pack &amp; Customizable GUIs:</strong> Modern declarative YAML menus supporting ItemsAdder, Oraxen, Nexo, Base64 heads, <code>&lt;progress_bar&gt;</code> milestone bars, 1-click <code>CLAIM_REWARDS</code>, and anti-dupe security.</li>
+<li><strong>🧩 Public Developer API:</strong> Integrate cleanly via <code>BlueHellStatsAPI</code>, <code>PlayerStatIncrementEvent</code>, and <code>SeasonRolloverCompleteEvent</code>.</li>
 <li><strong>🌐 Network-Ready Storage:</strong> Native support for SQLite (single server) as well as MySQL, MariaDB, and PostgreSQL with connection pooling for multi-server BungeeCord and Velocity networks.</li>
-<li><strong>📑 Extensive PlaceholderAPI Integration:</strong> Instantly show personal stats, rankings, top lists, and season countdowns on scoreboards, chat, and tablists with zero lag.</li>
+<li><strong>📑 Extensive PlaceholderAPI Integration:</strong> Instantly show personal stats, rankings, boosters, and season countdowns on scoreboards, chat, and tablists with zero lag.</li>
 </ul>
 <hr />
 <h2 id="navigation-guide">🧭 Navigation Guide</h2>
@@ -1100,8 +1103,12 @@
 <td style="text-align: left;">Create physical podium statues with ArmorStands, Citizens, or FancyNpcs.</td>
 </tr>
 <tr>
+<td style="text-align: left;"><strong><a href="features/boosters/">Global &amp; Stat Boosters</a></strong></td>
+<td style="text-align: left;">Run timed multipliers, Happy Hours, BossBar countdowns, and Tebex campaigns.</td>
+</tr>
+<tr>
 <td style="text-align: left;"><strong><a href="features/guis/">GUI Customization</a></strong></td>
-<td style="text-align: left;">Customize menus, layouts, pagination, and player profile inspection.</td>
+<td style="text-align: left;">Customize menus, resource pack items, progress bars, and profile inspection.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="features/seasons/">Seasons &amp; Tournaments</a></strong></td>
@@ -1113,7 +1120,11 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="reference/placeholders/">PlaceholderAPI Reference</a></strong></td>
-<td style="text-align: left;">Full list of placeholders for scoreboards, chat, and menus.</td>
+<td style="text-align: left;">Full list of placeholders for scoreboards, chat, boosters, and menus.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><a href="reference/developer-api/">Developer API</a></strong></td>
+<td style="text-align: left;">Hook into <code>BlueHellStatsAPI</code> and custom Bukkit events from your own plugins.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="reference/faq/">FAQ &amp; Troubleshooting</a></strong></td>
