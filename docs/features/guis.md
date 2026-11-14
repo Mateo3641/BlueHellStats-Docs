@@ -104,6 +104,11 @@ items:
 * **Interactive Navigation:** Clicking any player head in `/top <stat>` opens their multi-stat profile.
 * **Automatic Pagination:** Automatically distributes categories across multiple pages if you configure more stats than available slots.
 
+### 4. Milestone & Battle Pass Progress Track (`menus/milestones.yml`)
+Displays a horizontal tier progression track (`/top pass` or `/top progress <stat>`) with 3 visual states (`completed`, `in_progress`, `locked`) and `<description>` lines from `stats.yml`:
+* `OPEN_MILESTONES:<stat_id>` — Opens the visual tier roadmap for `<stat_id>` (used on the Battle Pass card in `menus/hub.yml` and the Milestone Tiers button in `menus/top.yml`).
+* `OPEN_MILESTONES` (without payload) — Opens the milestone track for the currently viewed leaderboard stat.
+
 ---
 
 ## 🎭 Custom Resource Packs & Head Textures

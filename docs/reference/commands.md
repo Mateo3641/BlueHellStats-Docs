@@ -10,6 +10,7 @@ All commands support tab-completion, permission checks, and localization message
 | :--- | :--- | :--- |
 | `/top` | `bluehell.top` | Opens the main categories leaderboard hub (`menus/hub.yml`). |
 | `/top <stat>` | `bluehell.top` | Directly opens the leaderboard for a specific category (`menus/top.yml`). |
+| `/top progress [stat]` (aliases `/top pass`, `/top milestones`) | `bluehell.top` | Opens the visual milestone / Battle Pass progression track (`menus/milestones.yml`). |
 | `/top profile [player]` | `bluehell.profile` | Opens the multi-stat detail profile GUI for yourself or another player. |
 | `/halloffame` (alias `/hof`) | `bluehell.hof` | Opens the historical browser of past seasons and podium winners. |
 | `/season info` | `bluehell.season.info` | View active season duration and remaining time. |
