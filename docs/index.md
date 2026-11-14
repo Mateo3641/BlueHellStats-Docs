@@ -14,6 +14,8 @@ Welcome to the official documentation for **BlueHellStats**, the premium statist
 * **🔌 Dynamic Custom Event Engine:** Track custom actions from *any* 3rd-party plugin (custom items, bosses, skills, minigames) directly from `stats.yml` without writing a single line of Java code.
 * **🎨 Resource Pack & Customizable GUIs:** Modern declarative YAML menus supporting ItemsAdder, Oraxen, Nexo, Base64 heads, `<progress_bar>` milestone bars, 1-click `CLAIM_REWARDS`, and anti-dupe security.
 * **🧩 Public Developer API:** Integrate cleanly via `BlueHellStatsAPI`, `PlayerStatIncrementEvent`, and `SeasonRolloverCompleteEvent`.
+* **🧵 Folia & Paper Regionized Ready:** Built-in `PlatformScheduler` routes async, global, entity, and region tasks automatically (`folia-supported: true`).
+* **🔔 Zero-Dependency Discord Webhooks:** Send asynchronous JSON embeds on Season Rollover and Booster Activation without extra libraries.
 * **🌐 Network-Ready Storage:** Native support for SQLite (single server) as well as MySQL, MariaDB, and PostgreSQL with connection pooling for multi-server BungeeCord and Velocity networks.
 * **📑 Extensive PlaceholderAPI Integration:** Instantly show personal stats, rankings, boosters, and season countdowns on scoreboards, chat, and tablists with zero lag.
 

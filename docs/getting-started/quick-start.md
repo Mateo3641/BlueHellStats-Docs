@@ -6,7 +6,7 @@ This guide walks you through installing and configuring BlueHellStats on your Pa
 
 ## 📋 Requirements
 
-* **Server Platform:** [Paper](https://papermc.io), Purpur, or any modern Paper fork running **Minecraft 1.21 or 1.21.1+**.
+* **Server Platform:** [Paper](https://papermc.io), Purpur, or **Folia** (`folia-supported: true`) running **Minecraft 1.21 or 1.21.1+**.
 * **Java Runtime:** **Java 21** or newer (OpenJDK / Temurin 21 recommended).
 * **Optional Integrations:**
   * **[PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/)** (for chat, scoreboard, and tablist placeholders)
